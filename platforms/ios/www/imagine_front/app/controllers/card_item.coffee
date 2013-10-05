@@ -1,4 +1,5 @@
 Card = require("models/card")
+Member = require("models/member")
 class CardItem extends Spine.Controller
 	className: "card_item layer"
 	events:
@@ -20,14 +21,24 @@ class CardItem extends Spine.Controller
 			console.log msg
 		onSuccess = (imageData) =>
 			b64img = "data:image/jpeg;base64," + imageData
-			card.image = b64img
-			card.save()
 			$img = $("img.u_word",@$el)
 			$img.attr "src",b64img
 			$img.animo
 				animation: 'tada'
 
-			card.sync(b64img)
+			onSuccess = (position) ->
+				card.lat = position.coords.latitude
+				card.lng = position.coords.longitude
+				card.altitude = position.coords.altitude
+				card.cap_at = position.timestamp
+				card.image = b64img
+				card.save()
+				card.sync()
+			onError = (error) ->
+				content = error.code + error.message
+				console.log content
+			# 获取拍摄照片时的位置信息并保存，触发同步
+			navigator.geolocation.getCurrentPosition(onSuccess, onError)
 		navigator.camera.getPicture onSuccess, onFail, option
 	turn_face: (e) ->
 		$(".card_wraper",@$el).toggleClass 'obverse'

@@ -1,7 +1,7 @@
 AjaxCard = require("models/ajax_card")
 Member = require("models/member")
 class Card extends Spine.Model
-	@configure 'Card', 'title', 'content', 'image', "_id", "audio", "sentence", "synset", "sync_over", "image_url"
+	@configure 'Card', 'title', 'content', 'image', "_id", "audio", "sentence", "synset", "sync_over", "image_url", "lat", "lng", "altitude", "cap_at"
 	@extend Spine.Model.Local
 	@fetch: ->
 		# @clean()
@@ -19,6 +19,8 @@ class Card extends Spine.Model
 		localStorage[@className] = []
 	@check_unSync: ->
 		@findAllByAttribute "sync_over",false
+	@check_unComplete: ->
+		@findAllByAttribute "image", "./trans.png"
 	@export_all: ->
 		# TO-DO
 		# find all image url and download to local
@@ -37,10 +39,14 @@ class Card extends Spine.Model
 			id: @_id
 		$.get request_url,params,(data) ->
 			console.log data.data
-	sync: (b64) ->
-		blob = dataURLtoBlob(b64)
+	sync: ->
+		blob = dataURLtoBlob(@image)
 		form = new FormData()
 		form.append("image", blob)
+		form.append("lat", @lat)
+		form.append("lng", @lng)
+		form.append("altitude", @altitude)
+		form.append("cap_at", @cap_at)
 		form.append("_id",@_id)
 		form.append("uuid",device.uuid)
 		request_url = Spine.Model.host + "/api/cards/create"

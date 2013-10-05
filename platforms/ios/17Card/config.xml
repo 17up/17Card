@@ -38,7 +38,7 @@
     <preference name="SuppressesIncrementalRendering" value="false" />
     <preference name="UIWebViewBounce" value="true" />
     <preference name="TopActivityIndicator" value="gray" />
-    <preference name="EnableLocation" value="false" />
+    <preference name="EnableLocation" value="true" />
     <preference name="EnableViewportScale" value="false" />
     <preference name="AutoHideSplashScreen" value="false" />
     <preference name="ShowSplashScreenSpinner" value="false" />
@@ -48,4 +48,7 @@
     <preference name="BackupWebStorage" value="cloud" />
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
+    <feature name="Geolocation">
+        <param name="ios-package" value="CDVLocation" />
+    </feature>
 </widget>

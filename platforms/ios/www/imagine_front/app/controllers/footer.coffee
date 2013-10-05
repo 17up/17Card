@@ -20,7 +20,7 @@ class Footer extends Spine.Controller
 		$target.find(".icon-refresh").addClass 'icon-spin'
 		cards = Card.check_unSync()
 		for card in cards
-			card.sync(card.image)
+			card.sync()
 		@render()
 		@notify('所有卡片都已同步到您的17up空间啦',"恭喜","知道咯")
 	config: ->

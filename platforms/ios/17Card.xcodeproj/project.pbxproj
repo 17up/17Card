@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		049ABF25977A4C1A899B3276 /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = EF241F0A931D4E8F99967793 /* CDVNotification.m */; };
 		16256B8A17FD644C00B25001 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 16256B8617FD644C00B25001 /* icon-72.png */; };
@@ -56,6 +55,7 @@
 		EBBCE4C9814148DAB4EDFA40 /* CDVLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFAE3F0E4E9442089EEC9E7 /* CDVLogger.m */; };
 		F42E21C54484450F82960D2A /* CDVSound.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCDFDD3E6C042449694FDFE /* CDVSound.m */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
+		D4C26AA63CC548F189939200 /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B2F9615301463F9FBD842D /* CDVLocation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +86,7 @@
 		16256B8E17FD649E00B25001 /* Default@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x~iphone.png"; path = "www/res/screen/ios/Default@2x~iphone.png"; sourceTree = SOURCE_ROOT; };
 		16256B8F17FD649E00B25001 /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x~iphone.png"; path = "www/res/screen/ios/Default-568h@2x~iphone.png"; sourceTree = SOURCE_ROOT; };
 		16256B9017FD649E00B25001 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default~iphone.png"; path = "www/res/screen/ios/Default~iphone.png"; sourceTree = SOURCE_ROOT; };
+		168040631800359400E9646C /* 17Card.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = 17Card.entitlements; path = 17Card/17Card.entitlements; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -141,6 +142,8 @@
 		F25249B1AB9F4C64A5B36C72 /* CDVNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVNotification.h; path = org.apache.cordova.dialogs/CDVNotification.h; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = 17Card/config.xml; sourceTree = "<group>"; };
 		FD034746F28A4D228D77E7DF /* CDVJpegHeaderWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVJpegHeaderWriter.m; path = org.apache.cordova.camera/CDVJpegHeaderWriter.m; sourceTree = "<group>"; };
+		E5B2F9615301463F9FBD842D /* CDVLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLocation.m"; path = "org.apache.cordova.geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		954149E5E1F749EABCBDC29F /* CDVLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLocation.h"; path = "org.apache.cordova.geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +216,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				168040631800359400E9646C /* 17Card.entitlements */,
 				F840E1F0165FE0F500CFE078 /* config.xml */,
 				301BF56E109A69640062928A /* www */,
 				301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */,
@@ -307,6 +311,8 @@
 				965784D6E3A742D2B710F7F6 /* CDVReachability.m */,
 				3BC8142B899043AE8CF0C17A /* CDVConnection.h */,
 				AC2F1163D67A4052B8FABBC4 /* CDVReachability.h */,
+				E5B2F9615301463F9FBD842D /* CDVLocation.m */,
+				954149E5E1F749EABCBDC29F /* CDVLocation.h */,
 			);
 			name = Plugins;
 			path = 17Card/Plugins;
@@ -489,6 +495,7 @@
 				F42E21C54484450F82960D2A /* CDVSound.m in Sources */,
 				23DA1E5945A644CBA7CB278F /* CDVConnection.m in Sources */,
 				E9B5F6F3E30C45B1A7D36888 /* CDVReachability.m in Sources */,
+				D4C26AA63CC548F189939200 /* CDVLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +550,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = 17Card/17Card.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -579,6 +587,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = 17Card/17Card.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;

@@ -30,4 +30,5 @@ class Member extends Spine.Model
 		states[Connection.CELL]     = 'Cell generic connection'
 		states[Connection.NONE]     = 'No network connection'
 		console.log states[networkState]
+
 module.exports = Member

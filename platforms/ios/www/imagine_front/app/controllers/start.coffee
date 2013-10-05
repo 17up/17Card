@@ -17,6 +17,7 @@ class Start extends Spine.Controller
 		navigator.splashscreen.hide()
 		$(".dancing").animo
 			animation: 'tada'
+		Cards.updateProgress()
 		this
 	start: (e) ->
 		# Member.checkConnection()

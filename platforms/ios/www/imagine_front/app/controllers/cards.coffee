@@ -14,6 +14,11 @@ class Cards extends Spine.Controller
 		@append(card.render())
 	addAll: =>
 		Card.each(@addOne)
+	@updateProgress: ->
+		cnt = Card.count()
+		un = Card.check_unComplete().length
+		percent = parseInt (cnt - un)*100/cnt
+		$(".progress").text(percent + "%")
 	setupKontext: (query) ->
 		k = kontext document.querySelector(query)
 		$first = $(".layer:first")
@@ -37,12 +42,6 @@ class Cards extends Spine.Controller
 				else if event.touches[0].clientX < lastX - 10
 					k.next()
 					touchConsumed = true
-		, false
-		document.addEventListener 'keyup', ( event ) ->
-			if event.keyCode is 37
-				k.prev()
-			if event.keyCode is 39
-				k.next()
 		, false
 		k.changed.add ( layer, index ) ->
 			$(layer).find("img").trigger("unveil")
