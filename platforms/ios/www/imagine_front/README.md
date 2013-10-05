@@ -1,15 +1,12 @@
-imagine_front
+imagine card (17Card) IOS Cordova 版本源码
 =============
 
-spineJs
+> spineJs + Jade + Stylus + Coffeescript
 
-Jade
+编译index.html `jade -P src/index.jade -o ../`
 
-`jade -P src/index.jade -o ../`
+编译css,js `hem build`
 
-`hem build`
+具体编译路径见 slug.json
 
-`manifest="/cache.manifest"`
 
-weixin appid: wx7514879783007944
-weixin appkey: 4f39407ef4c49866b0c7ceb4f87d671b
