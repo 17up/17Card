@@ -1,0 +1,12 @@
+- var trans_image = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+.card_wraper
+	.card_facade
+		.title.lobster #{title}
+		img.u_word(src = trans_image data-src = image)
+		.empty_tip
+			span.icon-camera
+	.card_obverse
+		.content #{content}
+		ul.sentence
+			each s in sentence
+				li= s

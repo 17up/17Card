@@ -1,0 +1,142 @@
+border-radius()
+	-moz-border-radius: arguments
+	-webkit-border-radius: arguments
+	border-radius: arguments
+
+/* Vertical Background Gradient */
+vbg-gradient(fc = #FFF, tc = #FFF)
+	background: fc
+	background: -webkit-gradient(linear, left top, left bottom, from(fc), to(tc))
+	background: -moz-linear-gradient(top, fc, tc)
+	background: linear-gradient(top, fc, tc)
+
+/* Horizontal Background Gradient */
+hbg-gradient(fc = #FFF, tc = #FFF)
+	background: fc
+	background: -webkit-gradient(linear, left top, right top, from(fc), to(tc))
+	background: -moz-linear-gradient(left, fc, tc)
+	background: linear-gradient(left, fc, tc)
+
+box-shadow()
+	-moz-box-shadow: arguments
+	-webkit-box-shadow: arguments
+	box-shadow: arguments
+
+inset-box-shadow()
+	-moz-box-shadow: inset arguments
+	-webkit-box-shadow: inset arguments
+	box-shadow: inset arguments
+
+box-flex(s = 0)
+	-webkit-box-flex: s
+	-moz-box-flex: s
+	box-flex: s
+
+unselectable()
+	-webkit-user-select: none
+	-moz-user-select: none
+	-ms-user-select: none
+	user-select: none
+
+hbox()
+	display: -webkit-box
+	-webkit-box-orient: horizontal
+	-webkit-box-align: stretch
+	-webkit-box-pack: start
+
+	display: -moz-box
+	-moz-box-orient: horizontal
+	-moz-box-align: stretch
+	-moz-box-pack: start
+
+vbox()
+	display: -webkit-box
+	-webkit-box-orient: vertical
+	-webkit-box-align: stretch
+
+	display: -moz-box
+	-moz-box-orient: vertical
+	-moz-box-align: stretch
+
+border-box()
+	-webkit-box-sizing: border-box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+
+transition(prop = all, s = 0.3s, t = linear)
+	-webkit-transition: prop s t
+	-moz-transition: prop s t
+	transition: prop s t
+
+ellipsis()
+	text-overflow: ellipsis
+	overflow: hidden
+	white-space:nowrap
+
+inset-line(opacity = 0.4, size = 1px)
+	inset-box-shadow(0, size, 0, rgba(255, 255, 255, opacity))
+
+outset-line(opacity = 0.4, size = 1px)
+	box-shadow(0, size, 0, rgba(255, 255, 255, opacity))
+
+box-pack(type = center)
+	-webkit-box-pack: type
+	-moz-box-pack: type
+	box-pack: type
+
+transform(tr)
+	-webkit-transform: tr
+	-moz-transform: tr
+	-ms-transform: tr
+	-o-transform: tr
+	transform: tr
+
+hacel()
+	transform(translate3d(0,0,0))
+
+clearfix()
+	&:before
+	&:after
+		content: ""
+		display: table
+	&:after
+		clear: both
+
+text-shadow-black(font_color = white)
+	color font_color
+	text-shadow -1px -1px 0px rgba(0, 0, 0, .8)
+
+text-shadow-inset(font_color = white)
+	color font_color
+	text-shadow 0 -1px 0 rgba(0,0,0,0.25)
+
+vertical-middle(height_val)
+	position absolute
+	top 50%
+	height height_val
+	margin-top (- (height_val / 2))
+
+vertical-middle-auto()
+	position absolute
+	top 0
+	bottom 0
+	margin auto
+
+horizontal-center(width_val)
+	position absolute
+	left 50%
+	width width_val
+	margin-left (- (width_val / 2))
+
+text_center()
+	width 100%
+	text-align center
+fixed()
+	position fixed
+	z-index 99
+	width 100%
+
+up3d_roll(rate = 500px)
+	perspective rate
+	-webkit-perspective rate
+	-moz-perspective rate

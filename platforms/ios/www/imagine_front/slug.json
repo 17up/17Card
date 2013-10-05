@@ -1,0 +1,39 @@
+{
+  "server": {
+    "port"  : 9294
+  },
+
+  "routes": [
+    { ""        : "./public" },
+    { "/test"    : "./test/public" }
+  ],
+
+  "packages": {
+    "veggie": {
+      "libs"    : ["lib/runtime.js"],
+      "modules" : [
+        "es5-shimify",
+        "json2ify",
+        "spine",
+        "spine/lib/ajax",
+        "spine/lib/local",
+        "spine/lib/route",
+        "spine/lib/manager"
+      ],
+      "paths"  : ["./app"],
+      "target" : "../application.js",
+      "jsAfter": "jade.rethrow = function rethrow(err, filename, lineno){ throw err; } ",
+      "jsAfter": "require('veggie')"
+    },
+    "css": {
+      "paths"  : ["./css","./css/lib/animate.css","./css/lib/kontext"],
+      "target" : "../application.css"
+    },
+    "test": {
+      "identifier" : "specs",
+      "jsAfter"    : "require('lib/setup'); for (var key in specs.modules) specs(key);",
+      "paths"      : ["./test/specs"],
+      "target"     : "./test/public/specs.js"
+    }
+  }
+}

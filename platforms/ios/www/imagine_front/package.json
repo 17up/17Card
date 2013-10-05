@@ -1,0 +1,10 @@
+{
+  "name": "imagine_front",
+  "version": "0.0.1",
+  "repository": "",
+  "dependencies": {
+    "es5-shimify": "~2.0.5",
+    "json2ify": "~0.0.3",
+    "spine": "~1.1.0"
+  }
+}
