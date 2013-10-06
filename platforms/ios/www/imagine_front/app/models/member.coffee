@@ -30,5 +30,28 @@ class Member extends Spine.Model
 		states[Connection.CELL]     = 'Cell generic connection'
 		states[Connection.NONE]     = 'No network connection'
 		console.log states[networkState]
-
+	@playSound: (url) ->
+		onSuccess = ->
+			false
+		onError = (error) ->
+			console.log(error.code + error.message)
+		sound = new Media(url,onSuccess, onError)
+		sound.play()
+	@recordMedia: (filename,$target,statClass = "recording") ->
+		$target.addClass statClass
+		onSuccess = ->
+			false
+		onError = (error) ->
+			console.log(error.code + error.message)
+		mediaRec = new Media(filename + ".wav",onSuccess,onError)
+		mediaRec.startRecord()
+		recTime = 0
+		recInterval = setInterval(->
+			recTime = recTime + 1
+			if recTime >= 3
+				clearInterval(recInterval)
+				mediaRec.stopRecord()
+				mediaRec.play()
+				$target.removeClass statClass
+		,1000)
 module.exports = Member

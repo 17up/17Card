@@ -14,11 +14,6 @@ class Cards extends Spine.Controller
 		@append(card.render())
 	addAll: =>
 		Card.each(@addOne)
-	@updateProgress: ->
-		cnt = Card.count()
-		un = Card.check_unComplete().length
-		percent = parseInt (cnt - un)*100/cnt
-		$(".progress").text(percent + "%")
 	setupKontext: (query) ->
 		k = kontext document.querySelector(query)
 		$first = $(".layer:first")

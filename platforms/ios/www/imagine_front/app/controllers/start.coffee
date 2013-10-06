@@ -1,4 +1,5 @@
 Member = require("models/member")
+Card = require("models/card")
 Cards = require("controllers/cards")
 Footer = require("controllers/footer")
 class Start extends Spine.Controller
@@ -10,19 +11,25 @@ class Start extends Spine.Controller
 		Member.bind 'refresh', @render
 		Member.fetch()
 	render: =>
-		new Footer(el: $("footer"))
-		new Cards(el: $("article"))
+		@footer = new Footer(el: $("footer"))
+		@cards = new Cards(el: $("article"))
 		@append @html require('views/start')()
-		@activate()
+		@start()
 		navigator.splashscreen.hide()
-		$(".dancing").animo
-			animation: 'tada'
-		Cards.updateProgress()
 		this
+	updateProgress: ->
+		cnt = Card.count()
+		un = Card.unComplete().length
+		percent = parseInt (cnt - un)*100/cnt
+		$(".progress span.num").text percent
 	start: (e) ->
-		# Member.checkConnection()
 		if @isActive()
 			@deactivate()
+			@footer.deactivate()
+			@updateProgress()
+			$(".dancing").animo
+				animation: 'tada'
 		else
 			@activate()
+			@footer.activate()
 module.exports = Start

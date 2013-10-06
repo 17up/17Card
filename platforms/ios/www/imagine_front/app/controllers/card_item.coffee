@@ -42,13 +42,7 @@ class CardItem extends Spine.Controller
 		navigator.camera.getPicture onSuccess, onFail, option
 	turn_face: (e) ->
 		$(".card_wraper",@$el).toggleClass 'obverse'
-		onSuccess = ->
-			console.log "audio played"
-		onError = (error) ->
-			content = error.code + error.message
-			console.log content
-		sound = new Media(@item.audio,onSuccess, onError)
-		sound.play()
+		Member.playSound(@item.audio)
 		this
 
 module.exports = CardItem

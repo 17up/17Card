@@ -17,22 +17,22 @@ class Card extends Spine.Model
 						@refresh(@all(), clear: true)
 	@clean: ->
 		localStorage[@className] = []
-	@check_unSync: ->
-		@findAllByAttribute "sync_over",false
-	@check_unComplete: ->
+	@unSync: ->
+		@findAllByAttribute "sync_over", false
+	@unComplete: ->
 		@findAllByAttribute "image", "./trans.png"
-	@export_all: ->
+	@exportAll: ->
 		# TO-DO
 		# find all image url and download to local
 		this
-	@fetch_new: ->
+	@fetchNew: ->
 		# TO-DO
 		# new week get new missions
 		@export_all()
 		@clean()
 		@fetch()
 		this
-	from_network: ->
+	fromNetwork: ->
 		request_url = Spine.Model.host + "/api/cards/collection"
 		params =
 			uuid: device.uuid

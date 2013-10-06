@@ -11,7 +11,7 @@ foot-height = 70px
 	height 20px
 	top 50%
 	left 50%
-	line-height 22px
+	line-height 20px
 	background c2
 	border-radius 10px
 	font-size 16px
@@ -25,37 +25,44 @@ foot-height = 70px
 .modal.show
 	display block
 	z-index 99
-.foot_nav
-	bottom 0px
-	height foot-height
-	fixed()
-	background c1
-	border-top 1px dashed c2
-	unselectable()
-	ul
-		margin 0
-		padding 0
-		li
-			list-style-type none
-			display table-cell
-			width 1%
-			text-align center
-			line-height foot-height
-			font-size 30px
-			text-shadow-inset()
-			position relative
-			&:active
-				background c2
-#help
-	padding 71px 0
-	.container
-		unselectable()
-		text-shadow-inset()
+footer.active
+	display block
+footer
+	display none
+	.foot_nav
+		bottom 0px
+		height foot-height
+		fixed()
 		background c1
-		width 100%
-		height 426px
-		.h_title
-			text_center()
-			font-size 30px
-		p
-			padding 0 10px
+		border-top 1px dashed c2
+		unselectable()
+		ul
+			margin 0
+			padding 0
+			li
+				list-style-type none
+				display table-cell
+				width 1%
+				text-align center
+				line-height foot-height
+				font-size 30px
+				text-shadow-inset()
+				position relative
+				&:active
+					background c2
+			li.micro.recording
+				pointer-events none
+				color #f1432c
+	#help
+		padding 71px 0
+		.container
+			unselectable()
+			text-shadow-inset()
+			background c1
+			width 100%
+			height 426px
+			.h_title
+				text_center()
+				font-size 30px
+			p
+				padding 0 10px
