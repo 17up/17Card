@@ -331,10 +331,10 @@ ul.icons li [class^="icon-"],ul.icons li [class*=" icon-"]{width:.75em}
 .card_item .card_wraper .card_facade .empty_tip{font-size:36px;position:absolute;top:50%;height:80px;margin-top:-40px;width:100%;text-align:center;margin-top:40px;color:#3498db;z-index:1}
 .card_item .card_wraper .card_facade .title{line-height:80px;font-size:36px;color:#fff;text-shadow:-1px -1px 0 rgba(0,0,0,0.8);position:absolute;top:50%;height:80px;margin-top:-40px;width:100%;text-align:center;z-index:9}
 .card_item .card_wraper .card_facade:active{background:#3498db}
-.card_item .card_wraper .card_obverse{-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-ms-transform:rotateY(180deg);-o-transform:rotateY(180deg);transform:rotateY(180deg);background:#3498db;color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,0.25);opacity:0;}
+.card_item .card_wraper .card_obverse{-webkit-transform:rotateY(180deg);-moz-transform:rotateY(180deg);-ms-transform:rotateY(180deg);-o-transform:rotateY(180deg);transform:rotateY(180deg);background:#2980b9;color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,0.25);opacity:0;}
 .card_item .card_wraper .card_obverse .content{padding:20px 20px 0 20px;font-size:16px}
 .card_item .card_wraper .card_obverse ul.sentence{margin:0;padding:10px 20px 0 20px;list-style:none;}
-.card_item .card_wraper .card_obverse ul.sentence li{margin:10px 0;padding:0 10px;border-left:4px solid #2980b9}
+.card_item .card_wraper .card_obverse ul.sentence li{margin:10px 0;padding:0 10px;border-left:4px solid #3498db}
 .card_item .card_wraper.obverse .card_facade{-webkit-transform:rotateY(-180deg);-moz-transform:rotateY(-180deg);-ms-transform:rotateY(-180deg);-o-transform:rotateY(-180deg);transform:rotateY(-180deg);opacity:0}
 .card_item .card_wraper.obverse .card_obverse{-webkit-transform:rotateY(0);-moz-transform:rotateY(0);-ms-transform:rotateY(0);-o-transform:rotateY(0);transform:rotateY(0);opacity:1}
 .badge{display:block;position:absolute;width:20px;height:20px;top:50%;left:50%;line-height:20px;background:#2980b9;-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px;font-size:16px}
