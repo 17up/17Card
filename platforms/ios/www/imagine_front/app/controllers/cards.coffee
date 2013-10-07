@@ -8,6 +8,7 @@ class Cards extends Spine.Controller
 		Card.fetch()
 	render: =>
 		@addAll()
+		Card.trigger "badge:refresh"
 		@setupKontext(".kontext")
 	addOne: (item) =>
 		card = new CardItem(item: item)

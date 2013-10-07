@@ -12,7 +12,7 @@ class CardItem extends Spine.Controller
 	make: (e) ->
 		card = @item
 		option =
-			quality: 80
+			quality: 90
 			targetWidth: 640
 			targetHeight: 857
 			saveToPhotoAlbum: true
@@ -25,18 +25,20 @@ class CardItem extends Spine.Controller
 			$img.attr "src",b64img
 			$img.animo
 				animation: 'tada'
-
+			saveImg = (c) ->
+				c.image = b64img
+				c.save()
+				c.sync()
 			onSuccess = (position) ->
 				card.lat = position.coords.latitude
 				card.lng = position.coords.longitude
 				card.altitude = position.coords.altitude
 				card.cap_at = position.timestamp
-				card.image = b64img
-				card.save()
-				card.sync()
+				saveImg(card)
 			onError = (error) ->
-				content = error.code + error.message
-				console.log content
+				console.log error.code + error.message
+				card.cap_at = new Date()
+				saveImg(card)
 			# 获取拍摄照片时的位置信息并保存，触发同步
 			navigator.geolocation.getCurrentPosition(onSuccess, onError)
 		navigator.camera.getPicture onSuccess, onFail, option

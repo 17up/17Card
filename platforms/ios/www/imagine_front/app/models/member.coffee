@@ -18,18 +18,16 @@ class Member extends Spine.Model
 				@refresh(current, clear: true)
 	@clean: ->
 		localStorage[@className] = []
-	@checkConnection: ->
-		networkState = navigator.connection.type
-		states = {}
-		states[Connection.UNKNOWN]  = 'Unknown connection'
-		states[Connection.ETHERNET] = 'Ethernet connection'
-		states[Connection.WIFI]     = 'WiFi connection'
-		states[Connection.CELL_2G]  = 'Cell 2G connection'
-		states[Connection.CELL_3G]  = 'Cell 3G connection'
-		states[Connection.CELL_4G]  = 'Cell 4G connection'
-		states[Connection.CELL]     = 'Cell generic connection'
-		states[Connection.NONE]     = 'No network connection'
-		console.log states[networkState]
+	# Connection.UNKNOWN
+	# Connection.ETHERNET
+	# Connection.WIFI
+	# Connection.CELL_2G
+	# Connection.CELL_3G
+	# Connection.CELL_4G
+	# Connection.CELL
+	# Connection.NONE
+	@checkConnection: (connection) ->
+		navigator.connection.type is connection
 	@playSound: (url) ->
 		onSuccess = ->
 			false

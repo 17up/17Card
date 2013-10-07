@@ -1,5 +1,4 @@
 AjaxCard = require("models/ajax_card")
-Member = require("models/member")
 class Card extends Spine.Model
 	@configure 'Card', 'title', 'content', 'image', "_id", "audio", "sentence", "synset", "sync_over", "image_url", "lat", "lng", "altitude", "cap_at"
 	@extend Spine.Model.Local
@@ -32,7 +31,7 @@ class Card extends Spine.Model
 		@clean()
 		@fetch()
 		this
-	fromNetwork: ->
+	collection: ->
 		request_url = Spine.Model.host + "/api/cards/collection"
 		params =
 			uuid: device.uuid
@@ -43,26 +42,30 @@ class Card extends Spine.Model
 		blob = dataURLtoBlob(@image)
 		form = new FormData()
 		form.append("image", blob)
-		form.append("lat", @lat)
-		form.append("lng", @lng)
-		form.append("altitude", @altitude)
-		form.append("cap_at", @cap_at)
+		form.append("lat", @lat) if @lat
+		form.append("lng", @lng) if @lng
+		form.append("altitude", @altitude) if @altitude
+		form.append("cap_at", @cap_at || new Date())
 		form.append("_id",@_id)
 		form.append("uuid",device.uuid)
 		request_url = Spine.Model.host + "/api/cards/create"
-		$.ajax
+		AjaxCard.ajaxQueue(
 			type: 'POST'
 			url: request_url
 			data: form
 			contentType: false
 			processData: false
-			error: =>
-				@updateAttributes
-					sync_over: false
-			success: (d) =>
-				if d.status is 0
-					img_url = Spine.Model.host + d.data
-					@updateAttributes
-						sync_over: true
-						image_url: img_url
+		).done(@syncSuccess).fail(@syncFail)
+	syncSuccess: (d) =>
+		if d.status is 0
+			img_url = Spine.Model.host + d.data
+			@updateAttributes
+				sync_over: true
+				image_url: img_url
+	syncFail: (err) =>
+		console.log err
+		@updateAttributes
+			sync_over: false
+		@trigger "badge:refresh"
+
 module.exports = Card
