@@ -1,0 +1,11 @@
+.card_wraper
+	.card_facade
+		.title.lobster #{title}
+		img.u_word(src = image)
+		.empty_tip
+			span.icon-camera
+	.card_obverse
+		.content #{content}
+		ul.sentence
+			each s in sentence
+				li= s

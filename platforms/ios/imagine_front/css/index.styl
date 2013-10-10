@@ -1,0 +1,63 @@
+@import './mixin'
+@import './base'
+@import './icon'
+@import './card'
+@import './foot'
+
+bar-height = 60px
+c1 = #3498db
+c2 = #2980b9
+
+.start.active
+	max-height bar-height
+	height bar-height
+	background c1
+	fixed()
+	padding-top 10px
+	border-bottom 1px dashed c2
+	.banner
+		top 0
+		margin 0
+		position relative
+		height 100%
+		.title
+			font-size 30px
+			line-height bar-height
+		.desc,.sub_title
+			display none
+.start
+	height 100%
+	unselectable()
+	position relative
+	z-index 90
+	&:active
+		background c2
+	.banner
+		text_center()
+		position absolute
+		top 30%
+		margin-top -36px
+		.sub_title
+			font-size 26px
+			text-shadow-inset()
+		.title
+			font-size 60px
+			text-shadow-inset()
+		.login
+			display block
+			font-size 60px
+			text-shadow-inset()
+			text-decoration none
+		.topic
+			margin 20px 0
+			padding 20px 0
+			background c2
+			border-top 2px dashed c1
+			border-bottom 2px dashed c1
+		.desc
+			text-shadow-inset()
+			font-size 16px
+		.progress span.num
+			font-size 34px
+
+
