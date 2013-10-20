@@ -1,0 +1,69 @@
+@import './mixin'
+
+c2 = #2980b9
+c1 = #3498db
+card_height = 428px
+
+.searchable
+	position relative
+	-webkit-transition -webkit-transform 0ms
+	transform translate3d(0,0,0) scale3d(1,1,1)
+	-webkit-transform translate3d(0,0,0) scale3d(1,1,1)
+	-webkit-backface-visibility hidden
+
+#search
+	display block
+	position absolute
+	top -80px
+	left 0
+	overflow hidden
+	width 100%
+	z-index 101
+	.form
+		height 70px
+		width 100%
+		form
+			margin 0
+			input
+				margin 30px 5px 0 10px
+				width 230px
+				font-size 16px
+				background c2
+				border none
+				padding 5px
+				color white
+			.btn
+				padding 6px 15px
+				color rgba(0,0,0,0.3)
+				&:active
+					color c2
+	.container
+		width 100%
+		height (card_height + 70)
+		background c2
+		display none
+		overflow auto
+		-webkit-overflow-scrolling touch
+		-webkit-transform translate3d(0,0,0)
+		ul,li
+			list-style none
+			margin 0
+			padding 0
+		li.wl:after
+			border-bottom 1px solid rgba( 0, 0, 0, 0.4 )
+		li.wl
+			border-bottom 1px solid rgba( 255, 255, 255, 0.1 )
+			span.word
+				text-shadow-inset()
+				text-indent 20px
+				text-overflow ellipsis
+				white-space nowrap
+				line-height 40px
+				overflow hidden
+				display block
+				padding 0 10px 0 0
+				margin 0
+		.empty_tip
+			padding-top 40px
+			text_center()
+			text-shadow-inset()

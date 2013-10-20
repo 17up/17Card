@@ -1,0 +1,29 @@
+@import './mixin'
+
+bar-height = 60px
+c1 = #3498db
+c2 = #2980b9
+
+nav
+	max-height bar-height
+	height bar-height
+	background c1
+	border-bottom 1px dashed c2
+	.banner
+		top 0
+		margin 0
+		position relative
+		height 100%
+		text_center()
+		span
+			position absolute
+			display block
+			font-size 26px
+			top 15px
+			text-shadow-inset()
+			width 50px
+		.title
+			text-shadow-inset()
+			font-size 30px
+			line-height bar-height
+

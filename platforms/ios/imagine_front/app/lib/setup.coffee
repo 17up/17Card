@@ -7,13 +7,13 @@ require('spine/lib/ajax')
 require('spine/lib/local')
 require('spine/lib/manager')
 require('spine/lib/route')
-# client side resize image
-require("lib/canvasResize")
-#hammer
-require("lib/hammer")
 # animate
 require("lib/animo")
 # img lazyload
 require("lib/jquery.unveil")
+require("lib/toBlob")
+require("lib/jquery.throttle")
+require("lib/jquery.carousel")
+require("lib/jquery.drag_search")
 
 

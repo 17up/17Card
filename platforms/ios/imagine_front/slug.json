@@ -26,7 +26,7 @@
       "jsAfter": "require('veggie')"
     },
     "css": {
-      "paths"  : ["./css","./css/lib/animate.css"],
+      "paths"  : ["./css","./css/lib/animate.css","./css/lib/carousel.css"],
       "target" : "../www/application.css"
     },
     "test": {

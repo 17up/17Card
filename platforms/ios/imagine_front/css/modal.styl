@@ -1,0 +1,34 @@
+@import './mixin'
+
+bar-height = 60px
+card_height = 428px
+
+.modal
+	display none
+	position absolute
+	top 0
+	left 0
+	width 100%
+	height 100%
+.modal.show
+	display block
+	z-index 99
+#help
+	text_center()
+	.h_title
+		font-size 30px
+	p
+		padding 0 10px
+	.start
+		font-size 22px
+.modal
+	.container
+		position absolute
+		top (bar-height + 1)
+		text-shadow-inset()
+		background c1
+		width 100%
+		height card_height
+		overflow-y auto
+		overflow-x hidden
+		-webkit-overflow-scrolling touch

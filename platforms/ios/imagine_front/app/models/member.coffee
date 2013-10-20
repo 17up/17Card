@@ -6,7 +6,6 @@ class Member extends Spine.Model
 		if localStorage[@className]
 			super()
 		else
-			@newer = true
 			request_url = Spine.Model.host + "/api/members"
 			platform = device.platform + " " + device.version
 			params =
@@ -14,8 +13,8 @@ class Member extends Spine.Model
 				name: device.model
 				platform: platform
 			$.get request_url,params, (data) =>
-				current = @create data.data
-				@refresh(current, clear: true)
+				@create data.data
+				@refresh(data.data, clear: true)
 	@clean: ->
 		localStorage[@className] = []
 	# Connection.UNKNOWN
@@ -48,8 +47,8 @@ class Member extends Spine.Model
 			if recTime >= 3
 				clearInterval(recInterval)
 				mediaRec.stopRecord()
-				Member.request_media(filename + ".wav",uploadMedia)
 				mediaRec.play()
+				Member.request_media(filename + ".wav",uploadMedia)
 		,1000)
 	@request_media: (media_file,handler) ->
 		onError = (error) ->

@@ -1,11 +1,18 @@
 require('lib/setup')
-Start = require("controllers/start")
+Header = require("controllers/header")
 Spine.Model.host = "http://17up.org"
 $(document).on "deviceready", ->
-	new Start(el: $("nav"))
+	new Header(el: $("nav"))
 	Spine.Route.setup()
 	#(history: true)
+
+	handleOpenURL = (url) ->
+		console.log url
 window.addEventListener 'load', ->
 	FastClick.attach(document.body)
 ,false
+
+$ ->
+	$(".modal").on "click", ->
+		$(@).removeClass "show"
 

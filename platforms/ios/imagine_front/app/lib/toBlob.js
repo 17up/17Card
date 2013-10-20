@@ -20,3 +20,4 @@ window.dataURLtoBlob = function(data) {
 		return bb;
 	}
 }
+

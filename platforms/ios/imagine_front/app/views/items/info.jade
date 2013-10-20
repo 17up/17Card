@@ -1,0 +1,20 @@
+.container
+	.title.pacifico= title
+	.family
+		each f in family
+			span.tagg= f.word
+	.sum #{content}
+	.raw_con
+		each r in raw_content.cn
+			.con
+				[
+				span.pos= r.pos
+				]
+				span.text= r.text
+		each r in raw_content.en
+			.con
+				[
+				span.pos= r.pos
+				]
+				span.text= r.text
+

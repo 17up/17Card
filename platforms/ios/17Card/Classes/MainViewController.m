@@ -37,6 +37,7 @@
         // _commandDelegate = [[MainCommandDelegate alloc] initWithViewController:self];
         // Uncomment to override the CDVCommandQueue used
         // _commandQueue = [[MainCommandQueue alloc] initWithViewController:self];
+        
     }
     return self;
 }
@@ -105,7 +106,6 @@
 {
     // Black base color for background matches the native apps
     theWebView.backgroundColor = [UIColor blackColor];
-
     return [super webViewDidFinishLoad:theWebView];
 }
 

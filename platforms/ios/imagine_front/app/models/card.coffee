@@ -1,30 +1,38 @@
 AjaxCard = require("models/ajax_card")
 class Card extends Spine.Model
-	@configure 'Card', 'title', 'content', 'image', "_id", "audio", "sentence", "synset", "sync_over", "image_url", "lat", "lng", "altitude", "cap_at", "status", "my_audio"
+	@configure 'Card', 'title', 'content', 'raw_content', 'pos', 'image', "_id", "synset", "sync_over", "image_url", "lat", "lng", "altitude", "cap_at", "actived", "my_audio", "family"
 	@extend Spine.Model.Local
 	@fetch: ->
 		# @clean()
 		if localStorage[@className]
 			super()
 		else
-			AjaxCard.fetch
-				data: "uuid=#{device.uuid}"
-				complete: (e) =>
-					if e.responseJSON.status is 0
-						@records = AjaxCard.all()
-						@change()
-						@refresh(@all(), clear: true)
-
+			$.getJSON "./api.json", (json) =>
+				@refresh(json.data, clear: true)
 	@clean: ->
 		localStorage[@className] = []
 	@unSync: ->
 		@findAllByAttribute "sync_over", false
-	@unComplete: ->
-		@findAllByAttribute "status", 1
 	@actived: ->
-		@findByAttribute "status", 2
-	@completed: ->
-		@findAllByAttribute "status", 3
+		w = @findByAttribute "actived", true
+		w || @first()
+	deactive: ->
+		@updateAttributes
+			actived: false
+		@trigger "deactive"
+	setActived: ->
+		Card.actived().deactive()
+		@updateAttributes
+			actived: true
+		@trigger "imagine"
+	@search_by: (str) ->
+		@select (item) ->
+			item["title"].indexOf(str) > -1
+	@group_by: (letter) ->
+		words = @select (item) ->
+			item["title"].indexOf(letter) is 0
+		# $.map words, (val,i) ->
+		# 	val.title
 	@exportAll: ->
 		# TO-DO
 		# find all image url and download to local
@@ -36,13 +44,16 @@ class Card extends Spine.Model
 		@clean()
 		@fetch()
 		this
-	collection: ->
+	getPics: (onSuccess,onFail) ->
 		request_url = Spine.Model.host + "/api/cards/collection"
 		params =
 			uuid: device.uuid
 			id: @_id
-		$.get request_url,params,(data) ->
-			console.log data.data
+		AjaxCard.ajaxQueue(
+			data: params
+			type: 'GET'
+			url: request_url
+		).done(onSuccess).fail(onFail)
 	sync: ->
 		blob = dataURLtoBlob(@image)
 		form = new FormData()
@@ -72,7 +83,7 @@ class Card extends Spine.Model
 		@updateAttributes
 			sync_over: false
 		@trigger "badge:refresh"
-	recognize_audio: (blob,onSuccess,onFail) ->
+	recognize_audio: (blob) ->
 		form = new FormData()
 		form.append("file", blob)
 		form.append("_id",@_id)
@@ -84,5 +95,5 @@ class Card extends Spine.Model
 			data: form
 			contentType: false
 			processData: false
-		).done(onSuccess).fail(onFail)
+		)
 module.exports = Card

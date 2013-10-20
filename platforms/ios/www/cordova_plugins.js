@@ -248,6 +248,13 @@ module.exports = [
         "merges": [
             "window.Entry"
         ]
+    },
+    {
+        "file": "plugins/com.chariotsolutions.cordova.plugin.keyboard_toolbar_remover/www/keyboard_toolbar_remover.js",
+        "id": "com.chariotsolutions.cordova.plugin.keyboard_toolbar_remover.KeyboardToolbarRemover",
+        "clobbers": [
+            "toolbar"
+        ]
     }
 ]
 });

@@ -3,12 +3,30 @@ Member = require("models/member")
 class CardItem extends Spine.Controller
 	className: "card_item"
 	events:
-		"hold .card_facade": "make"
-		"tap": "turn_face"
+		"hold .pane1": "make"
+		"tap .pane1": "playAudio"
+		"tap .wp": "picDetail"
 	constructor: ->
 		super
+		@item.bind "deactive", @release
 	render: =>
 		@html require("views/items/card")(@item)
+	init: ->
+		@$el.carousel()
+		@getPics()
+	getPics: ->
+		onSuccess = (data) =>
+			if data.status is 0
+				pics = for item in data.data
+					$.extend {},item,image: Spine.Model.host + item.image
+				$("li.pane2",@$el).html require("views/items/pane2")(pics: pics)
+		onFail = (err) ->
+			console.log err
+		@item.getPics(onSuccess,onFail)
+	picDetail: (e) ->
+		$target = $(e.currentTarget)
+		id = $target.data().uw
+		$target.toggleClass "active"
 	make: (e) ->
 		e.preventDefault()
 		$target = $(e.currentTarget)
@@ -49,8 +67,9 @@ class CardItem extends Spine.Controller
 			# 获取拍摄照片时的位置信息并保存，触发同步
 			navigator.geolocation.getCurrentPosition(onSuccess, onError)
 		navigator.camera.getPicture onSuccess, onFail, option
-	turn_face: (e) ->
-		Member.playSound(@item.audio)
+	playAudio: (e) ->
+		src = "http://tts.yeshj.com/uk/s/" + encodeURIComponent(@item.title)
+		Member.playSound(src)
 		this
 
 module.exports = CardItem

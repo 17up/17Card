@@ -3,18 +3,14 @@ Member = require("models/member")
 class Footer extends Spine.Controller
 	events:
 		"click .sync": "sync"
-		"click .config": "config"
-		"click #help": "close_help"
 		"click .micro": "record"
+		"click .light": "light"
 	constructor: ->
 		super
 		Card.bind "badge:refresh", @render_badge
-		@append @render()
-		if Member.newer
-			@config()
-			Member.newer = false
-	render: =>
-		@html require("views/footer")()
+	light: (e) ->
+		$("#info").html require("views/items/info")(Card.actived())
+		$("#info").addClass("show")
 	render_badge: ->
 		$(".sync .badge",@$el).text Card.unSync().length
 	sync: (e) ->
@@ -36,29 +32,16 @@ class Footer extends Spine.Controller
 			@notify("系统未监测到网络，无法同步","遗憾","知道咯",$target)
 		else
 			@notify("建议在 WIFI 网络下执行同步，节省您的流量哦","友情提示","知道咯",$target)
-	config: ->
-		$("#help").addClass("show").animo
-			animation: 'swing'
 	record: (e) ->
 		$target = $(e.currentTarget)
 		$target.addClass "recording"
 		filename = "mySound"
-		syncFail = (err) ->
-			console.log err
-		syncAudioSuccess = (d) =>
-			if d.status is 0
-				if d.data.correct
-					@notify("发音很标准哦","恭喜","加油")
-				else
-					@notify("#{d.data.text}? 你的发音似乎不太准哦!","遗憾","加油")
-			$target.removeClass "recording"
 		uploadMedia = (base64) ->
 			card = Card.actived()
 			blob = dataURLtoBlob(base64)
-			card.recognize_audio(blob,syncAudioSuccess,syncFail)
+			$target.removeClass "recording"
+			card.recognize_audio(blob)
 		Member.recordMedia(filename,uploadMedia)
-	close_help: (e) ->
-		$(e.currentTarget).removeClass "show"
 	notify: (content,title,button,$target) ->
 		cal = ->
 			if $target
