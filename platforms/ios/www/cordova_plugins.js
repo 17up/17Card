@@ -255,6 +255,13 @@ module.exports = [
         "clobbers": [
             "toolbar"
         ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.battery-status/www/battery.js",
+        "id": "org.apache.cordova.battery-status.battery",
+        "clobbers": [
+            "navigator.battery"
+        ]
     }
 ]
 });

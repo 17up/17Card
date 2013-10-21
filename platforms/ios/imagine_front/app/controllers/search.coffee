@@ -10,10 +10,15 @@ class Search extends Spine.Controller
 		$("#search_input").bind "input propertychange",$.debounce(1000,@render)
 	render: ->
 		str = $.trim $(this).val()
-		if str isnt ""
-			$("#search .container").html require("views/result")(words: Card.search_by(str))
+		$container = $("#search .container")
+		if str.length > 0
+			if str.length > 1
+				words = Card.search_by(str)
+			else
+				words = Card.group_by(str)
+			$container.html require("views/result")(words: words)
 		else
-			$("#search .container").empty()
+			$container.empty()
 	select: (e) ->
 		title = $(e.currentTarget).text()
 		card = Card.findByAttribute "title", title

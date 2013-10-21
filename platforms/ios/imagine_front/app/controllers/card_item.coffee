@@ -6,6 +6,7 @@ class CardItem extends Spine.Controller
 		"hold .pane1": "make"
 		"tap .pane1": "playAudio"
 		"tap .wp": "picDetail"
+		"hold .wp": "share"
 	constructor: ->
 		super
 		@item.bind "deactive", @release
@@ -27,6 +28,12 @@ class CardItem extends Spine.Controller
 		$target = $(e.currentTarget)
 		id = $target.data().uw
 		$target.toggleClass "active"
+	share: (e) ->
+		$target = $(e.currentTarget).find("img")
+		message =
+			text: "This is a test message"
+			image: $target.attr("src")
+		window.socialmessage.send(message)
 	make: (e) ->
 		e.preventDefault()
 		$target = $(e.currentTarget)
@@ -37,7 +44,7 @@ class CardItem extends Spine.Controller
 			quality: 90
 			targetWidth: 640
 			targetHeight: 857
-			saveToPhotoAlbum: true
+			# saveToPhotoAlbum: true
 			destinationType: Camera.DestinationType.DATA_URL
 			# allowEdit: true
 		onFail = (msg) ->

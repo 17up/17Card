@@ -45,7 +45,7 @@ class Card extends Spine.Model
 		@fetch()
 		this
 	getPics: (onSuccess,onFail) ->
-		request_url = Spine.Model.host + "/api/cards/collection"
+		request_url = Spine.Model.host + "/api/cards/imagine"
 		params =
 			uuid: device.uuid
 			id: @_id

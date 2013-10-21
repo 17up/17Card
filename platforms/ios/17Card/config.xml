@@ -57,4 +57,7 @@
     <feature name="KeyboardToolbarRemover">
         <param name="ios-package" value="KeyboardToolbarRemover" />
     </feature>
+    <feature name="Battery">
+        <param name="ios-package" value="CDVBattery" />
+    </feature>
 </widget>

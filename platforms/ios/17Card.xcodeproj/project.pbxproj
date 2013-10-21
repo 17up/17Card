@@ -51,6 +51,7 @@
 		F42E21C54484450F82960D2A /* CDVSound.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCDFDD3E6C042449694FDFE /* CDVSound.m */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
 		9FC9EF781CB34AD98B22C0E2 /* KeyboardToolbarRemover.m in Sources */ = {isa = PBXBuildFile; fileRef = 668D188AD4F54F93B2E2C162 /* KeyboardToolbarRemover.m */; };
+		308891929B0C4A0D9E0B2549 /* CDVBattery.m in Sources */ = {isa = PBXBuildFile; fileRef = 65175762EFF949D2AC345EA2 /* CDVBattery.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,8 @@
 		FD034746F28A4D228D77E7DF /* CDVJpegHeaderWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVJpegHeaderWriter.m; path = org.apache.cordova.camera/CDVJpegHeaderWriter.m; sourceTree = "<group>"; };
 		668D188AD4F54F93B2E2C162 /* KeyboardToolbarRemover.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "KeyboardToolbarRemover.m"; path = "com.chariotsolutions.cordova.plugin.keyboard_toolbar_remover/KeyboardToolbarRemover.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		C3FE07283E2049EA9408D21C /* KeyboardToolbarRemover.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "KeyboardToolbarRemover.h"; path = "com.chariotsolutions.cordova.plugin.keyboard_toolbar_remover/KeyboardToolbarRemover.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		65175762EFF949D2AC345EA2 /* CDVBattery.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVBattery.m"; path = "org.apache.cordova.battery-status/CDVBattery.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		855BA91E0AD743C0A1F76D4F /* CDVBattery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVBattery.h"; path = "org.apache.cordova.battery-status/CDVBattery.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,6 +315,8 @@
 				279BD0AF78F84A44B6C59CC3 /* CDVFile.h */,
 				668D188AD4F54F93B2E2C162 /* KeyboardToolbarRemover.m */,
 				C3FE07283E2049EA9408D21C /* KeyboardToolbarRemover.h */,
+				65175762EFF949D2AC345EA2 /* CDVBattery.m */,
+				855BA91E0AD743C0A1F76D4F /* CDVBattery.h */,
 			);
 			name = Plugins;
 			path = 17Card/Plugins;
@@ -486,6 +491,7 @@
 				D4C26AA63CC548F189939200 /* CDVLocation.m in Sources */,
 				CCB4325727A1420195032C4C /* CDVFile.m in Sources */,
 				9FC9EF781CB34AD98B22C0E2 /* KeyboardToolbarRemover.m in Sources */,
+				308891929B0C4A0D9E0B2549 /* CDVBattery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

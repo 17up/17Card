@@ -362,6 +362,7 @@ nav .banner .title{color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,0.25);font-size:30
 #search .container{width:100%;height:498px;background:#2980b9;display:none;overflow:auto;-webkit-overflow-scrolling:touch;-webkit-transform:translate3d(0,0,0);}
 #search .container ul,#search .container li{list-style:none;margin:0;padding:0}
 #search .container li.wl:after{border-bottom:1px solid rgba(0,0,0,0.4)}
+#search .container li.wl:active{background:#3498db}
 #search .container li.wl{border-bottom:1px solid rgba(255,255,255,0.1);}
 #search .container li.wl span.word{color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,0.25);text-indent:20px;text-overflow:ellipsis;white-space:nowrap;line-height:40px;overflow:hidden;display:block;padding:0 10px 0 0;margin:0}
 #search .container .empty_tip{padding-top:40px;width:100%;text-align:center;color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,0.25)}
