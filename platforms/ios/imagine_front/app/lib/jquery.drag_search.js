@@ -50,8 +50,9 @@
 					if(ev.gesture.deltaY < breakpoint) {
 						hide();
 					}else{
+						word_list.show();
 						$("nav,article,footer").hide();
-						search_input.focus();
+
 						setHeight(field_height,true);
 					}
 					break;
@@ -74,20 +75,26 @@
 		 }
 
 		 function setHeight(height,transition) {
-				if(transition){
-					wraper.css({
-						"webkitTransform": 'translate3d(0,'+height+'px,0) scale3d(1,1,1)',
-						"-webkit-transition": "-webkit-transform 0.2s ease-in"
-					});
-
-				}else{
-					wraper.css({
-						"webkitTransform": 'translate3d(0,'+height+'px,0) scale3d(1,1,1)',
-						"-webkit-transition": "-webkit-transform 0s"
-					});
-
-				}
-
+		 	opacity = 1 - height*(1/70);
+			if(transition){
+				wraper.css({
+					"webkitTransform": 'translate3d(0,'+height+'px,0) scale3d(1,1,1)',
+					"-webkit-transition": "-webkit-transform 0.2s ease-in"
+				});
+				$("nav,article,footer").css({
+					"opacity": opacity,
+					"-webkit-transition": "opacity 0.2s ease-in"
+				});
+			}else{
+				wraper.css({
+					"webkitTransform": 'translate3d(0,'+height+'px,0) scale3d(1,1,1)',
+					"-webkit-transition": "-webkit-transform 0s"
+				});
+				$("nav,article,footer").css({
+					"opacity": opacity,
+					"-webkit-transition": "opacity 0s"
+				});
+			}
 		};
 
 		function hide() {
@@ -104,8 +111,7 @@
 		function updateHeight() {
 			var self = this;
 			if(_slidedown_height >= field_height){
-				word_list.show();
-
+				search_input.focus();
 			}else {
 				setHeight(_slidedown_height);
 			}

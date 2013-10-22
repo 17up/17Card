@@ -3,10 +3,10 @@ Member = require("models/member")
 class CardItem extends Spine.Controller
 	className: "card_item"
 	events:
-		"hold .pane1": "make"
-		"tap .pane1": "playAudio"
-		"tap .wp": "picDetail"
-		"hold .wp": "share"
+		"hold .main": "make"
+		"click .audio": "playAudio"
+		"click .getPics": "getPics"
+		"click .share": "share"
 	constructor: ->
 		super
 		@item.bind "deactive", @release
@@ -14,26 +14,23 @@ class CardItem extends Spine.Controller
 		@html require("views/items/card")(@item)
 	init: ->
 		@$el.carousel()
-		@getPics()
-	getPics: ->
+	getPics: (e) ->
+		$target = $(e.currentTarget)
 		onSuccess = (data) =>
 			if data.status is 0
+				$target.remove()
 				pics = for item in data.data
 					$.extend {},item,image: Spine.Model.host + item.image
-				$("li.pane2",@$el).html require("views/items/pane2")(pics: pics)
+				$("ul",@$el).append require("views/items/imagine")(pics: pics)
+				@$el.carousel()
 		onFail = (err) ->
 			console.log err
+			$target.html require("views/items/empty")()
 		@item.getPics(onSuccess,onFail)
-	picDetail: (e) ->
-		$target = $(e.currentTarget)
-		id = $target.data().uw
-		$target.toggleClass "active"
 	share: (e) ->
-		$target = $(e.currentTarget).find("img")
-		message =
-			text: "This is a test message"
-			image: $target.attr("src")
-		window.socialmessage.send(message)
+		e.stopPropagation()
+		$target = $(e.currentTarget).parent().find("img")
+		window.plugins.socialsharing.share("超赞的单词卡片！",null,$target.attr("src"))
 	make: (e) ->
 		e.preventDefault()
 		$target = $(e.currentTarget)

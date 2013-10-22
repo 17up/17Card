@@ -15,15 +15,16 @@ article
 	background c2
 	height max_height
 	position relative
-	.pane1
+	img.u_word
+		width max_width
+		vertical-middle-auto()
+		z-index 5
+	.main
 		> div
 			font-size 36px
 			vertical-middle 80px
 			text_center()
-		img.u_word
-			width max_width
-			vertical-middle-auto()
-			z-index 5
+
 		.empty_tip
 			margin-top 40px
 			color c1
@@ -32,30 +33,35 @@ article
 			line-height 80px
 			text-shadow-black()
 			z-index 9
-	.pane2
-		padding 0
-		margin 0
-		position relative
+	.getPics
+		.tip
+			font-size 40px
+			vertical-middle 40px
+			text_center()
+			color c1
 		.empty_tip
-			font-size 16px
+			font-size 20px
 			color c1
 			vertical-middle 20px
 			text_center()
-		.wp.active
-			width max_width
-			height max_height
+	.imagine
+		padding 0
+		margin 0
+		position relative
+		span.share
 			position absolute
-			top 0
-			left 0
-			z-index 4
-		.wp
-			width (max_width/2)
-			height (max_height/2)
-			float left
-			background rgba(0,0,0,0.4)
-			z-index 3
-			img.o_word
-				width 100%
+			z-index 6
+			bottom 5px
+			right 5px
+			display block
+			width 50px
+			height 50px
+			line-height 50px
+			text-align center
+			background rgba(0,0,0,0.5)
+			text-shadow-inset()
+			border-radius(5px)
+			font-size 36px
 #info
 	.container
 		width 320px

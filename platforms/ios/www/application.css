@@ -326,15 +326,14 @@ ul.icons li [class^="icon-"],ul.icons li [class*=" icon-"]{width:.75em}
 100%{-webkit-transform:rotate(359deg);-moz-transform:rotate(359deg);-ms-transform:rotate(359deg);-o-transform:rotate(359deg);transform:rotate(359deg)}
 }article{display:block;width:100%;height:428px}
 .card_item{width:320px;background:#2980b9;height:428px;position:relative;}
-.card_item .pane1 > div{font-size:36px;position:absolute;top:50%;height:80px;margin-top:-40px;width:100%;text-align:center}
-.card_item .pane1 img.u_word{width:320px;position:absolute;top:0;bottom:0;margin:auto;z-index:5}
-.card_item .pane1 .empty_tip{margin-top:40px;color:#3498db;z-index:1}
-.card_item .pane1 .title{line-height:80px;color:#fff;text-shadow:-1px -1px 0 rgba(0,0,0,0.8);z-index:9}
-.card_item .pane2{padding:0;margin:0;position:relative;}
-.card_item .pane2 .empty_tip{font-size:16px;color:#3498db;position:absolute;top:50%;height:20px;margin-top:-10px;width:100%;text-align:center}
-.card_item .pane2 .wp.active{width:320px;height:428px;position:absolute;top:0;left:0;z-index:4}
-.card_item .pane2 .wp{width:160px;height:214px;float:left;background:rgba(0,0,0,0.4);z-index:3;}
-.card_item .pane2 .wp img.o_word{width:100%}
+.card_item img.u_word{width:320px;position:absolute;top:0;bottom:0;margin:auto;z-index:5}
+.card_item .main > div{font-size:36px;position:absolute;top:50%;height:80px;margin-top:-40px;width:100%;text-align:center}
+.card_item .main .empty_tip{margin-top:40px;color:#3498db;z-index:1}
+.card_item .main .title{line-height:80px;color:#fff;text-shadow:-1px -1px 0 rgba(0,0,0,0.8);z-index:9}
+.card_item .getPics .tip{font-size:40px;position:absolute;top:50%;height:40px;margin-top:-20px;width:100%;text-align:center;color:#3498db}
+.card_item .getPics .empty_tip{font-size:20px;color:#3498db;position:absolute;top:50%;height:20px;margin-top:-10px;width:100%;text-align:center}
+.card_item .imagine{padding:0;margin:0;position:relative;}
+.card_item .imagine span.share{position:absolute;z-index:6;bottom:5px;right:5px;display:block;width:50px;height:50px;line-height:50px;text-align:center;background:rgba(0,0,0,0.5);color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,0.25);-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;font-size:36px}
 #info .container{width:320px;}
 #info .container > div{padding:0 20px;margin-bottom:15px}
 #info .container .title{text-align:center;font-size:26px;margin-top:10px}
