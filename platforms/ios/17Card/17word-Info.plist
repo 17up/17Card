@@ -2,21 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIStatusBarTintParameters</key>
-	<dict>
-		<key>UINavigationBar</key>
-		<dict>
-			<key>TintColor</key>
-			<dict>
-				<key>Green</key>
-				<integer>255</integer>
-				<key>Red</key>
-				<integer>255</integer>
-				<key>Blue</key>
-				<integer>255</integer>
-			</dict>
-		</dict>
-	</dict>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -29,7 +18,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh_CN</string>
 	<key>CFBundleDisplayName</key>
-	<string>imagine</string>
+	<string>17word</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>

@@ -1,12 +1,13 @@
-ul
-	li.main.audio
-		.title.lobster #{title}
-		img.u_word(src = (image || "./trans.png"))
-		.empty_tip
-			span.icon-camera
-	li.getPics
-		.tip
-			span.icon-magic
+.title.lobster #{title}
+img.u_word(src = (image || "./trans.png"))
+.empty_tip
+	span.icon-camera
+if image_url
+	span.share
+		i.icon-share
+else
+	span.share.hide
+		i.icon-share
 
 
 

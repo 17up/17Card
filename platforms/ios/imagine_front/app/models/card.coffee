@@ -1,6 +1,6 @@
 AjaxCard = require("models/ajax_card")
 class Card extends Spine.Model
-	@configure 'Card', 'title', 'content', 'raw_content', 'pos', 'image', "_id", "synset", "sync_over", "image_url", "lat", "lng", "altitude", "cap_at", "actived", "my_audio", "family"
+	@configure 'Card', 'title', 'content', 'raw_content', 'pos', 'image', "_id", "synset", "sync_over", "image_url", "lat", "lng", "altitude", "cap_at", "actived", "my_audio", "family", "quotes"
 	@extend Spine.Model.Local
 	@fetch: ->
 		# @clean()
@@ -8,7 +8,7 @@ class Card extends Spine.Model
 			super()
 		else
 			$.getJSON "./api.json", (json) =>
-				@refresh(json.data, clear: true)
+				@refresh(json, clear: true)
 	@clean: ->
 		localStorage[@className] = []
 	@unSync: ->
@@ -78,6 +78,7 @@ class Card extends Spine.Model
 			@updateAttributes
 				sync_over: true
 				image_url: img_url
+			@trigger "share:show"
 	syncFail: (err) =>
 		console.log err
 		@updateAttributes

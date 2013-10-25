@@ -6,6 +6,7 @@ class Member extends Spine.Model
 		if localStorage[@className]
 			super()
 		else
+			@is_new = true
 			request_url = Spine.Model.host + "/api/members"
 			platform = device.platform + " " + device.version
 			params =
@@ -28,12 +29,15 @@ class Member extends Spine.Model
 	@checkConnection: (connection) ->
 		navigator.connection.type is connection
 	@playSound: (url) ->
-		onSuccess = ->
+		onSuccess = =>
 			false
 		onError = (error) ->
 			console.log(error.code + error.message)
-		sound = new Media(url,onSuccess, onError)
-		sound.play()
+		if @sound and (url is @sound.src)
+			console.log "same~"
+		else
+			@sound = new Media(url,onSuccess, onError)
+		@sound.play()
 	@recordMedia: (filename,uploadMedia) ->
 		onSuccess = ->
 			false

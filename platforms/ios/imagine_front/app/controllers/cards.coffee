@@ -11,8 +11,8 @@ class Cards extends Spine.Controller
 		Card.trigger "badge:refresh"
 		new Search(el: $("#search"))
 		@imagine()
+		navigator.splashscreen.hide()
 	imagine: =>
 		card = new CardItem(item: Card.actived())
 		@append(card.render())
-		card.init()
 module.exports = Cards

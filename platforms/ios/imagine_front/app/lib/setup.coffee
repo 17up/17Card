@@ -13,7 +13,6 @@ require("lib/animo")
 require("lib/jquery.unveil")
 require("lib/toBlob")
 require("lib/jquery.throttle")
-require("lib/jquery.carousel")
 require("lib/jquery.drag_search")
 
 

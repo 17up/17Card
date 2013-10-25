@@ -52,7 +52,7 @@
 					}else{
 						word_list.show();
 						$("nav,article,footer").hide();
-
+						search_input.focus();
 						setHeight(field_height,true);
 					}
 					break;
@@ -77,7 +77,7 @@
 		 function setHeight(height,transition) {
 		 	opacity = 1 - height*(1/70);
 			if(transition){
-				wraper.css({
+				$(search_container).css({
 					"webkitTransform": 'translate3d(0,'+height+'px,0) scale3d(1,1,1)',
 					"-webkit-transition": "-webkit-transform 0.2s ease-in"
 				});
@@ -86,7 +86,7 @@
 					"-webkit-transition": "opacity 0.2s ease-in"
 				});
 			}else{
-				wraper.css({
+				$(search_container).css({
 					"webkitTransform": 'translate3d(0,'+height+'px,0) scale3d(1,1,1)',
 					"-webkit-transition": "-webkit-transform 0s"
 				});
@@ -111,7 +111,7 @@
 		function updateHeight() {
 			var self = this;
 			if(_slidedown_height >= field_height){
-				search_input.focus();
+
 			}else {
 				setHeight(_slidedown_height);
 			}

@@ -4,7 +4,6 @@ class Search extends Spine.Controller
 		"click .word": "select"
 	constructor: ->
 		super
-		$("body").addClass "searchable"
 		@$el.drag_search()
 		toolbar.hide()
 		$("#search_input").bind "input propertychange",$.debounce(1000,@render)

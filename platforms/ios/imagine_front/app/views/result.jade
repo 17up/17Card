@@ -4,5 +4,8 @@ if words.length > 0
 			li.wl
 				span.word
 					= w.title
+				if w.image_url
+					span.checked
+						i.icon-check
 else
 	.empty_tip 抱歉，好像没找到您要的单词

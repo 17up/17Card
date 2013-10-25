@@ -14,7 +14,7 @@ card_height = 428px
 #search
 	display block
 	position absolute
-	top -80px
+	top -70px
 	left 0
 	overflow hidden
 	width 100%
@@ -22,25 +22,26 @@ card_height = 428px
 	.form
 		height 70px
 		width 100%
+		background c2
 		form
 			margin 0
 			input
 				margin 30px 5px 0 10px
-				width 230px
+				width 220px
 				font-size 16px
-				background c2
+				background c1
 				border none
-				padding 5px
+				padding 5px 10px
 				color white
 			.btn
 				padding 6px 15px
 				color rgba(0,0,0,0.3)
 				&:active
-					color c2
+					color c1
 	.container
 		width 100%
 		height (card_height + 70)
-		background c2
+		background c1
 		display none
 		overflow auto
 		-webkit-overflow-scrolling touch
@@ -52,9 +53,10 @@ card_height = 428px
 		li.wl:after
 			border-bottom 1px solid rgba( 0, 0, 0, 0.4 )
 		li.wl:active
-			background c1
+			background c2
 		li.wl
 			border-bottom 1px solid rgba( 255, 255, 255, 0.1 )
+			position relative
 			span.word
 				text-shadow-inset()
 				text-indent 20px
@@ -65,6 +67,12 @@ card_height = 428px
 				display block
 				padding 0 10px 0 0
 				margin 0
+			span.checked
+				text-shadow-inset()
+				right 10px
+				position absolute
+				top 50%
+				margin-top -10px
 		.empty_tip
 			padding-top 40px
 			text_center()

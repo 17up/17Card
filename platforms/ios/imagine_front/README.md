@@ -1,4 +1,4 @@
-imagine card (17Card) IOS Cordova 版本源码
+imagine card (17word) IOS Cordova 版本源码
 =============
 
 > spineJs + Jade + Stylus + Coffeescript
@@ -9,7 +9,7 @@ imagine card (17Card) IOS Cordova 版本源码
 
 具体编译路径见 slug.json
 
-`scp 17Card.ipa www@17up.org:~/17up/current/public/system/app/`
+`scp 17word.ipa www@17up.org:~/17up/current/public/system/app/`
 
 ### Change Log
 

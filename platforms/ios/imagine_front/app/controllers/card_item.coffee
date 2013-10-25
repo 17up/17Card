@@ -3,34 +3,21 @@ Member = require("models/member")
 class CardItem extends Spine.Controller
 	className: "card_item"
 	events:
-		"hold .main": "make"
-		"click .audio": "playAudio"
-		"click .getPics": "getPics"
+		"hold": "make"
+		"click": "playAudio"
 		"click .share": "share"
 	constructor: ->
 		super
 		@item.bind "deactive", @release
+		@item.bind "share:show", @showShare
 	render: =>
 		@html require("views/items/card")(@item)
-	init: ->
-		@$el.carousel()
-	getPics: (e) ->
-		$target = $(e.currentTarget)
-		onSuccess = (data) =>
-			if data.status is 0
-				$target.remove()
-				pics = for item in data.data
-					$.extend {},item,image: Spine.Model.host + item.image
-				$("ul",@$el).append require("views/items/imagine")(pics: pics)
-				@$el.carousel()
-		onFail = (err) ->
-			console.log err
-			$target.html require("views/items/empty")()
-		@item.getPics(onSuccess,onFail)
 	share: (e) ->
 		e.stopPropagation()
-		$target = $(e.currentTarget).parent().find("img")
-		window.plugins.socialsharing.share("超赞的单词卡片！",null,$target.attr("src"))
+		word = @item.title
+		window.plugins.socialsharing.share("快来看我做的单词卡片 #{word}",null,@item.image_url)
+	showShare: =>
+		@$el.find(".share").show()
 	make: (e) ->
 		e.preventDefault()
 		$target = $(e.currentTarget)
@@ -38,7 +25,7 @@ class CardItem extends Spine.Controller
 		card = @item
 
 		option =
-			quality: 90
+			quality: 70
 			targetWidth: 640
 			targetHeight: 857
 			# saveToPhotoAlbum: true
@@ -64,6 +51,7 @@ class CardItem extends Spine.Controller
 				card.altitude = position.coords.altitude
 				card.cap_at = position.timestamp
 				saveImg(card)
+
 			onError = (error) ->
 				console.log error.code + error.message
 				card.cap_at = new Date()
@@ -72,8 +60,8 @@ class CardItem extends Spine.Controller
 			navigator.geolocation.getCurrentPosition(onSuccess, onError)
 		navigator.camera.getPicture onSuccess, onFail, option
 	playAudio: (e) ->
-		src = "http://tts.yeshj.com/uk/s/" + encodeURIComponent(@item.title)
-		Member.playSound(src)
-		this
+		unless Member.checkConnection(Connection.NONE)
+			src = "http://tts.yeshj.com/uk/s/" + encodeURIComponent(@item.title)
+			Member.playSound(src)
 
 module.exports = CardItem

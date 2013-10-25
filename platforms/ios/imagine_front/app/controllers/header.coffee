@@ -11,7 +11,9 @@ class Header extends Spine.Controller
 	render: =>
 		new Footer(el: $("footer"))
 		new Cards(el: $("article"))
-		navigator.splashscreen.hide()
+		if Member.is_new
+			@config()
+			Member.is_new = false
 		this
 	config: ->
 		$("#help").addClass("show")
