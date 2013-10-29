@@ -5,7 +5,6 @@ class Search extends Spine.Controller
 	constructor: ->
 		super
 		@$el.drag_search()
-		toolbar.hide()
 		$("#search_input").bind "input propertychange",$.debounce(1000,@render)
 	render: ->
 		str = $.trim $(this).val()
